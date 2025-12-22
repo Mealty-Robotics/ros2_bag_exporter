@@ -100,7 +100,8 @@ void BagExporter::setup_handlers()
     if (sanitized_topic.empty() || sanitized_topic[0] != '/') {
       sanitized_topic = "/" + sanitized_topic;
     }
-
+    std::replace(sanitized_topic.begin(), sanitized_topic.end(), '/', '_');
+    
     // Create directory for each topic
     std::string topic_dir = output_dir_ + "/" + sanitized_topic.substr(1); // Remove leading '/'
     std::filesystem::create_directories(topic_dir);

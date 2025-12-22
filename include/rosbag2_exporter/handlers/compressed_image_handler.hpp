@@ -61,10 +61,13 @@
      std::string timestamp = ss_timestamp.str();
 
      std::string sanitized_topic = topic;
+     // change / to _ 
+     std::replace(sanitized_topic.begin(), sanitized_topic.end(), '/', '_');
      // RCLCPP_WARN(logger_, "Topic-> %s", sanitized_topic.c_str());
      if (!sanitized_topic.empty() && sanitized_topic[0] == '/') {
        sanitized_topic = sanitized_topic.substr(1);
      }
+     RCLCPP_INFO(logger_, "Topic sanitized: %s", sanitized_topic.c_str());
 
      // Create the full file path
      std::string filepath = topic_dir_ + "/" + sanitized_topic + "/" + timestamp + extension;

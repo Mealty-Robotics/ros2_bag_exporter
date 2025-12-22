@@ -2,61 +2,18 @@
 # This file specifies the paths, storage format, and topics to extract from the ROS bag.
 
 # Path to the input ROS2 bag file
-bag_path: "/path/to/your.bag"
+bag_path: "/workspace/bags/rosbag2_2025_12_22-10_50_42"
 
 # Directory where the exported data will be saved
-output_dir: "/path/to/output_directory"
+output_dir: "/workspace/bags/extracted_dir_1/"
 
 # Storage format for the exported data. Options are "sqlite3" or "mcap"
 storage_id: "sqlite3"
 
 # List of topics to extract from the ROS2 bag
 topics:
-  # Configuration for the point cloud topic
-  - name: "/pointcloud_topic"   # Name of the topic to extract
-    type: "PointCloud2"         # Data type of the topic
-    sample_interval: 10         # Write one sample every 10 messages
-    save_mode: "auto"           # Auto, prefer intensity > rgb > rgba if available
-
   # Configuration for the RGB image topic
-  - name: "/rgb_image_topic"    # Name of the topic to extract
-    type: "Image"               # Data type of the topic
+  - name: "/camera/camera/color/image_raw/compressed"    # Name of the topic to extract
+    type: "CompressedImage"               # Data type of the topic
     encoding: "rgb8"            # Encoding format for the image
-    sample_interval: 5          # Write one sample every 5 messages
-
-  # Configuration for the RGB image topic
-  - name: "/ir_image_topic"    # Name of the topic to extract
-    type: "IRImage"               # Data type of the topic
-    encoding: "mono16"            # Encoding format for the IR image
-    sample_interval: 5          # Write one sample every 5 messages
-
-  # Configuration for the depth image topic
-  - name: "/depth_image_topic"  # Name of the topic to extract
-    type: "DepthImage"          # Data type of the topic
-    encoding: "bgr8"            # Encoding format for the depth image
-    sample_interval: 2          # Write one sample every 2 messages
-
-  # Configuration for the laser scan topic
-  - name: "/laser_scan_topic"       # Name of the topic to extract
-    type: "LaserScan"               # Data type of the topic
-    sample_interval: 5              # Write one sample every 5 messages
-
-  # Configuration for the IMU (Inertial Measurement Unit) topic
-  - name: "/imu_topic"              # Name of the topic to extract
-    type: "IMU"                     # Data type of the topic
-    sample_interval: 20             # Write one sample every 20 messages
-
-  # Configuration for the GPS topic
-  - name: "/gps_topic"              # Name of the topic to extract
-    type: "GPS"                     # Data type of the topic
-    sample_interval: 1              # Write every message
-
-  # Configuration for the path topic
-  - name: "/path"                  # Name of the topic to extract
-    type: "Path"                   # Data type of the topic
-    sample_interval: 1             # Write one sample every 10 messages
-
-  # Configuration for the odometry topic
-  - name: "/odom"                  # Name of the topic to extract
-    type: "Odometry"               # Data type of the topic
-    sample_interval: 1             # Write one sample every 10 messages
+    sample_interval: 1000          # Write one sample every 5 messages

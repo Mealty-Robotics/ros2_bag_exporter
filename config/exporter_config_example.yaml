@@ -2,10 +2,10 @@
 # This file specifies the paths, storage format, and topics to extract from the ROS bag.
 
 # Path to the input ROS2 bag file
-bag_path: "/workspace/bags/rosbag2_2025_12_22-10_50_42"
+bag_path: "/workspace/rosbag2_2025_12_26-14_06_49"
 
 # Directory where the exported data will be saved
-output_dir: "/workspace/bags/extracted_dir_1/"
+output_dir: "/workspace/bags/extracted_dir_6/"
 
 # Storage format for the exported data. Options are "sqlite3" or "mcap"
 storage_id: "sqlite3"
@@ -16,4 +16,4 @@ topics:
   - name: "/camera/camera/color/image_raw/compressed"    # Name of the topic to extract
     type: "CompressedImage"               # Data type of the topic
     encoding: "rgb8"            # Encoding format for the image
-    sample_interval: 1000          # Write one sample every 5 messages
+    sample_interval: 5          # Write one sample every 5 messages
